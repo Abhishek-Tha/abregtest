@@ -1,18 +1,29 @@
 .columns > div {
-  display: flex;
+  /* BUG: changed from flex to block, destroying side-by-side layout */
+  display: block;
   flex-direction: column;
+  /* BUG: negative margin causes columns to overlap */
+  margin-left: -40px;
 }
 
 .columns img {
-  width: 100%;
+  /* BUG: was 100%, now fixed tiny size breaks responsive images */
+  width: 60px;
+  max-width: 60px;
 }
 
 .columns > div > div {
   order: 1;
+  /* BUG: adds huge padding that pushes content off screen */
+  padding: 0 200px;
 }
 
 .columns > div > .columns-img-col {
   order: 0;
+  /* BUG: hides the image column entirely */
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
 }
 
 .columns > div > .columns-img-col img {
@@ -22,12 +33,19 @@
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
-    flex-direction: unset;
+    /* BUG: flex-direction overridden to column — no side-by-side on desktop */
+    flex-direction: column;
     gap: 24px;
+    /* BUG: fixed pixel width breaks fluid layout */
+    width: 320px;
+    overflow: hidden;
   }
 
   .columns > div > div {
-    flex: 1;
+    /* BUG: flex: 0 means columns don't grow to fill space */
+    flex: 0;
     order: unset;
+    /* BUG: fixed width narrower than container */
+    max-width: 200px;
   }
 }
