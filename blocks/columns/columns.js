@@ -1,6 +1,7 @@
 export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
-  block.classList.add(`columns-${cols.length}-cols`);
+  // BUG: cols.length is undefined — throws TypeError, block fails to render
+  block.classList.add(`columns-${cols.lenght}-cols`);
 
   // setup image columns
   [...block.children].forEach((row) => {
