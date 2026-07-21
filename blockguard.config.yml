@@ -1,0 +1,54 @@
+version: 1
+
+site:
+  owner:  abhishek-tha   # ← same as above
+  repo: https://main--abregtest--abhishek-tha.aem.live/             # ← same as above
+  baseBranch: main
+  githubToken: ${{ env.GH_TOKEN }}
+
+discovery:
+  pageIndex: /query-index.json
+
+blockDetection:
+  selector: ".block"
+  nameStrategy: class
+  ignoredClasses:
+    - block
+    - initialized
+    - loading
+  variationStrategy: remaining-classes
+
+selection:
+  mode: representative
+  maximumPages: 15
+  includeEveryVariation: true
+  pagesPerVariation: 2
+
+capture:
+  disableAnimations: true
+  waitForFonts: true
+  waitForImages: true
+  maskSelectors:
+    - ".timestamp"
+    - ".personalized-content"
+  hideSelectors:
+    - ".cookie-banner"
+  waitForSelectors:
+    - "main .block"
+  delayMs: 500
+
+viewports:
+  - name: mobile
+    width: 390
+    height: 844
+  - name: desktop
+    width: 1440
+    height: 1000
+
+thresholds:
+  visualWarning: 0.5
+  visualFailure: 3.0
+  newConsoleErrorsFailure: 1
+  failOnNewCriticalAccessibilityIssue: true
+  failOnMissingBlock: true
+  failOnHorizontalOverflow: true
