@@ -2,7 +2,7 @@ version: 1
 
 site:
   owner:  abhishek-tha   # ← same as above
-  repo: https://main--abregtest--abhishek-tha.aem.live/             # ← same as above
+  repo: abregtest             # ← same as above
   baseBranch: main
   githubToken: ${{ env.GH_TOKEN }}
 
