@@ -52,6 +52,11 @@ jobs:
             libcairo2 \
             libasound2t64
 
+      - name: Install Chrome via Puppeteer
+        run: npx puppeteer browsers install chrome
+        env:
+          PUPPETEER_CACHE_DIR: /home/runner/.cache/puppeteer
+
       - name: Run BlockGuard regression
         uses: Abhishek-Tha/regressionvalidator/packages/action@main
         with:
