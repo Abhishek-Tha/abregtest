@@ -1,0 +1,98 @@
+{
+  "total": 10,
+  "offset": 0,
+  "limit": 10,
+  "data": [
+    {
+      "path": "/",
+      "title": "Home",
+      "image": "/media_1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b.jpeg",
+      "description": "Welcome to our site. Explore our latest content, features, and updates.",
+      "lastModified": "1720000000",
+      "tags": "",
+      "template": ""
+    },
+    {
+      "path": "/about",
+      "title": "About Us",
+      "image": "/media_2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1.jpeg",
+      "description": "Learn more about our team, mission, and values.",
+      "lastModified": "1720100000",
+      "tags": "about,company",
+      "template": ""
+    },
+    {
+      "path": "/blog",
+      "title": "Blog",
+      "image": "/media_3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2.jpeg",
+      "description": "Read our latest articles, news, and insights from our team.",
+      "lastModified": "1720200000",
+      "tags": "blog,news",
+      "template": ""
+    },
+    {
+      "path": "/blog/getting-started",
+      "title": "Getting Started with AEM Edge Delivery Services",
+      "image": "/media_4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3.jpeg",
+      "description": "A beginner's guide to AEM Edge Delivery Services and how to set up your first project.",
+      "lastModified": "1720300000",
+      "tags": "blog,tutorial,aem",
+      "template": ""
+    },
+    {
+      "path": "/blog/blocks-explained",
+      "title": "Understanding EDS Blocks",
+      "image": "/media_5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4.jpeg",
+      "description": "Deep dive into how EDS blocks work — hero, cards, columns, and more.",
+      "lastModified": "1720400000",
+      "tags": "blog,development,blocks",
+      "template": ""
+    },
+    {
+      "path": "/blog/performance-tips",
+      "title": "Web Performance Tips for EDS Projects",
+      "image": "/media_6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5.jpeg",
+      "description": "Best practices for maintaining a perfect Lighthouse score on Edge Delivery Services.",
+      "lastModified": "1720500000",
+      "tags": "blog,performance,web",
+      "template": ""
+    },
+    {
+      "path": "/products",
+      "title": "Products",
+      "image": "/media_7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6.jpeg",
+      "description": "Explore our full range of products and solutions.",
+      "lastModified": "1720600000",
+      "tags": "products",
+      "template": ""
+    },
+    {
+      "path": "/products/product-one",
+      "title": "Product One",
+      "image": "/media_8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7.jpeg",
+      "description": "Detailed overview of Product One — features, pricing, and documentation.",
+      "lastModified": "1720700000",
+      "tags": "products,product-one",
+      "template": ""
+    },
+    {
+      "path": "/contact",
+      "title": "Contact Us",
+      "image": "/media_9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8.jpeg",
+      "description": "Get in touch with our team for support, sales, or general enquiries.",
+      "lastModified": "1720800000",
+      "tags": "contact",
+      "template": ""
+    },
+    {
+      "path": "/fragments/header-nav",
+      "title": "Header Navigation Fragment",
+      "image": "",
+      "description": "Shared header navigation fragment used across all pages.",
+      "lastModified": "1720900000",
+      "tags": "fragment,navigation",
+      "template": "fragment"
+    }
+  ],
+  ":type": "sheet"
+}
