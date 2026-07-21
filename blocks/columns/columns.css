@@ -1,34 +1,48 @@
+/* BROKEN: entire columns layout destroyed */
 .columns > div {
-  /* BUG: changed from flex to block, destroying side-by-side layout */
-  display: block;
-  flex-direction: column;
-  /* BUG: increased negative margin — more overlap */
-  margin-left: -80px;
-  /* BUG: bright background makes regression unmissable */
-  background-color: #fff3cd;
-  outline: 3px dashed orange;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  background: repeating-linear-gradient(
+    45deg,
+    #ff000022,
+    #ff000022 10px,
+    #ffff0033 10px,
+    #ffff0033 20px
+  ) !important;
+  border: 4px dashed red !important;
+  padding: 40px !important;
+  gap: 0 !important;
 }
 
 .columns img {
-  /* BUG: even smaller + grayscale filter applied */
-  width: 40px;
-  max-width: 40px;
-  filter: grayscale(100%);
-  opacity: 0.3;
+  width: 100%;
+  /* BROKEN: massive rotation on all images */
+  transform: rotate(45deg) !important;
+  opacity: 0.4 !important;
+  filter: hue-rotate(180deg) saturate(5) !important;
+  margin: 40px auto !important;
+  display: block !important;
 }
 
 .columns > div > div {
   order: 1;
-  /* BUG: adds huge padding that pushes content off screen */
-  padding: 0 200px;
+  /* BROKEN: huge ugly border on every column cell */
+  border: 3px solid blue !important;
+  padding: 20px !important;
+  margin: 10px !important;
+  transform: skewY(5deg) !important;
+  background: rgba(0, 0, 255, 0.08) !important;
 }
 
 .columns > div > .columns-img-col {
   order: 0;
-  /* BUG: hides the image column entirely */
-  visibility: hidden;
-  height: 0;
-  overflow: hidden;
+  /* BROKEN: image column pushed way out of flow */
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: 80px !important;
+  z-index: 999 !important;
+  opacity: 0.3 !important;
 }
 
 .columns > div > .columns-img-col img {
@@ -37,24 +51,25 @@
 
 @media (width >= 900px) {
   .columns > div {
-    align-items: center;
-    /* BUG: flex-direction overridden to column — no side-by-side on desktop */
-    flex-direction: column;
-    gap: 24px;
-    /* BUG: even narrower fixed width */
-    width: 240px;
-    overflow: hidden;
-    /* BUG: rotated container on desktop */
-    transform: skewX(-5deg);
+    /* BROKEN: forced single column stacking on desktop too */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+    width: 40% !important;
+    margin-left: 0 !important;
+    outline: 6px solid orange !important;
   }
 
   .columns > div > div {
-    /* BUG: flex: 0 means columns don't grow to fill space */
-    flex: 0;
+    flex: unset !important;
     order: unset;
-    /* BUG: fixed width narrower than container */
-    max-width: 160px;
-    /* BUG: white text on white background — content invisible */
-    color: white;
+    width: 100% !important;
+    /* BROKEN: alternating background colors wreck visual consistency */
+    background: #ffe !important;
+    border-bottom: 2px solid green !important;
+    font-size: 10px !important;
+    letter-spacing: 0.3em !important;
+    text-transform: uppercase !important;
   }
 }
