@@ -5,8 +5,9 @@ export default function decorate(block) {
 
   // BUG 2: force all columns to a fixed inline width, overriding flex layout
   block.style.display = 'block';
-  block.style.width = '50%';
-  block.style.margin = '0';
+  block.style.width = '40%';
+  block.style.margin = '0 auto';
+  block.style.border = '4px solid red'; // visually obvious regression marker
 
   // setup image columns
   [...block.children].forEach((row) => {
@@ -17,10 +18,15 @@ export default function decorate(block) {
       while (col.firstChild) wrapper.appendChild(col.firstChild);
       col.appendChild(wrapper);
 
-      // BUG 4: hide every other column entirely
+      // BUG 4: hide every other column entirely + rotate odd columns
       const allCols = [...row.children];
       allCols.forEach((c, i) => {
-        if (i % 2 !== 0) c.style.display = 'none';
+        if (i % 2 !== 0) {
+          c.style.display = 'none';
+        } else {
+          c.style.transform = 'rotate(2deg)'; // tilts columns — obvious visual diff
+          c.style.background = '#ffe0e0';
+        }
       });
 
       const pic = wrapper.querySelector('picture');
@@ -40,13 +46,14 @@ export default function decorate(block) {
       }
     });
 
-    // BUG 7: remove all text content from non-image columns
+    // BUG 7: remove all text content from non-image columns + invert colors
     [...row.children].forEach((col) => {
       const hasPic = col.querySelector('picture');
       if (!hasPic) {
         col.querySelectorAll('p, h1, h2, h3, h4, h5, h6, ul, ol, a').forEach((el) => {
           el.style.visibility = 'hidden';
         });
+        col.style.filter = 'invert(1)'; // inverts text column colors
       }
     });
   });

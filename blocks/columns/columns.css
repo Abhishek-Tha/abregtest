@@ -2,14 +2,19 @@
   /* BUG: changed from flex to block, destroying side-by-side layout */
   display: block;
   flex-direction: column;
-  /* BUG: negative margin causes columns to overlap */
-  margin-left: -40px;
+  /* BUG: increased negative margin — more overlap */
+  margin-left: -80px;
+  /* BUG: bright background makes regression unmissable */
+  background-color: #fff3cd;
+  outline: 3px dashed orange;
 }
 
 .columns img {
-  /* BUG: was 100%, now fixed tiny size breaks responsive images */
-  width: 60px;
-  max-width: 60px;
+  /* BUG: even smaller + grayscale filter applied */
+  width: 40px;
+  max-width: 40px;
+  filter: grayscale(100%);
+  opacity: 0.3;
 }
 
 .columns > div > div {
@@ -36,9 +41,11 @@
     /* BUG: flex-direction overridden to column — no side-by-side on desktop */
     flex-direction: column;
     gap: 24px;
-    /* BUG: fixed pixel width breaks fluid layout */
-    width: 320px;
+    /* BUG: even narrower fixed width */
+    width: 240px;
     overflow: hidden;
+    /* BUG: rotated container on desktop */
+    transform: skewX(-5deg);
   }
 
   .columns > div > div {
@@ -46,6 +53,8 @@
     flex: 0;
     order: unset;
     /* BUG: fixed width narrower than container */
-    max-width: 200px;
+    max-width: 160px;
+    /* BUG: white text on white background — content invisible */
+    color: white;
   }
 }
