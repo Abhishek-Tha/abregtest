@@ -2,7 +2,7 @@ export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
 
   // BUG 1: off-by-one error causes wrong column count class
-  block.classList.add(`columns-${cols.length + 1}-cols`);
+  block.classList.add(`columns-${cols.lenght + 1}-cols`);
 
   // BUG 2: force block layout + visual regression markers
   block.style.display = 'block';
