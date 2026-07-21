@@ -52,19 +52,15 @@ jobs:
             libcairo2 \
             libasound2t64
 
-
       - name: Run BlockGuard regression
-        id: blockguard
         uses: Abhishek-Tha/regressionvalidator/packages/action@main
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          owner: abhishek-tha    # ← e.g. Abhishek-Tha
-          repo: https://main--abregtest--abhishek-tha.aem.live/              # ← e.g. my-eds-site
+          owner: abhishek-tha          # ← just your GitHub username, NO URL
+          repo: abregtest              # ← just the repo name, NO URL  
           base-branch: main
           page-index-url: https://main--abregtest--abhishek-tha.aem.live/query-index.json
-          github-token: ${{ secrets.GH_TOKEN }}
-          mode: ${{ inputs.mode || 'representative' }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          mode: representative
           max-pages: '15'
           fail-on-regression: 'false'
           advisory-mode: 'true'
