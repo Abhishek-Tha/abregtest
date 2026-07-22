@@ -15,7 +15,7 @@
 }
 
 .columns img {
-  width: 100%;
+  width: 99%;
   /* BROKEN: massive rotation on all images */
   transform: rotate(45deg) !important;
   opacity: 0.4 !important;
