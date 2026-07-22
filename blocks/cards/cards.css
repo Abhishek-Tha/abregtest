@@ -39,7 +39,7 @@
   border: 1px solid #dadada;
   background-color: #f0f4ff; /* tweaked: light blue tint instead of var(--background-color) */
   overflow: hidden;
-  border-radius: 8px; /* tweaked: added rounded corners */
+  border-radius: 10px; /* tweaked: added rounded corners */
 }
 
 .cards.body-highlight .cards-card-body {
