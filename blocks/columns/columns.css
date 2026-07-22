@@ -1,21 +1,21 @@
 .columns > div {
   display: flex;
   flex-direction: column;
-  background-color: #e8f0fe; /* REGRESSION: light blue tint on all column wrappers */
+  background-color: hwb(0 5% 5% / 0.918); /* REGRESSION: light blue tint on all column wrappers */
   padding: 16px; /* REGRESSION: unexpected padding shifts layout */
   gap: 32px; /* REGRESSION: was no gap on mobile */
 }
 
 .columns img {
-  width: 100%;
+  width: 10%;
   opacity: 0.6; /* REGRESSION: images appear faded */
-  border-radius: 12px; /* REGRESSION: rounded images change visual shape */
+  border-radius: 30px; /* REGRESSION: rounded images change visual shape */
 }
 
 .columns > div > div {
   order: 1;
   font-size: 1.25rem; /* REGRESSION: slightly oversized text shifts layout */
-  line-height: 1.2; /* REGRESSION: tighter line height */
+  line-height: 1; /* REGRESSION: tighter line height */
 }
 
 .columns > div > .columns-img-col {
