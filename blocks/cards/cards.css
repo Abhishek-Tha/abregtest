@@ -13,7 +13,7 @@
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  margin: 100px;
 }
 
 .cards .cards-card-image {
@@ -29,7 +29,7 @@
 /* body-highlight variation: REGRESSION ~30-40% visual deviation */
 .cards.body-highlight > ul {
   grid-template-columns: 1fr;
-  gap: 50px; /* REGRESSION: was 32px */
+  gap: 100px; /* REGRESSION: was 32px */
 }
 
 .cards.body-highlight > ul > li {

@@ -43,7 +43,7 @@
 .columns.stack-view > div {
   display: flex;
   flex-direction: column;
-  gap: 29px;
+  gap: 40px;
   background-color: #fff3cd; /* REGRESSION: yellowish tint on stack-view wrapper */
   border-left: 4px solid #f0a500; /* REGRESSION: unexpected left border accent */
   padding: 24px; /* REGRESSION: extra padding changes visual box size */
