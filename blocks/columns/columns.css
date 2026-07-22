@@ -31,3 +31,38 @@
     order: unset;
   }
 }
+
+/* stack-view variation: columns always stacked as full-width rows (never side-by-side) */
+.columns.stack-view > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns.stack-view > div > div {
+  flex: unset;
+  width: 100%;
+  order: unset;
+}
+
+.columns.stack-view > div > .columns-img-col {
+  order: unset;
+}
+
+.columns.stack-view img {
+  width: 100%;
+  display: block;
+}
+
+@media (width >= 900px) {
+  .columns.stack-view > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .columns.stack-view > div > div {
+    flex: unset;
+    width: 100%;
+  }
+}
