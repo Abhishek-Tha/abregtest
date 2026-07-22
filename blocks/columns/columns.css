@@ -45,6 +45,6 @@
   .columns > div > div {
     flex: unset; /* BROKEN: was 1 — breaks equal column sizing */
     order: unset;
-    width: 30%; /* BROKEN: narrow columns instead of equal split */
+    width: 31%; /* BROKEN: narrow columns instead of equal split */
   }
 }
