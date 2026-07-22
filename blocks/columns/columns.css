@@ -1,18 +1,33 @@
+/* columns block: HEAVILY BROKEN — local test only, do not commit */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse; /* BROKEN: was column — reverses column order */
+  background-color: hotpink; /* BROKEN: garish background */
+  border: 5px dashed red; /* BROKEN: was no border */
+  transform: skewY(8deg); /* BROKEN: severe skew */
+  gap: 0; /* BROKEN: removed gap */
 }
 
 .columns img {
   width: 100%;
+  filter: invert(1) hue-rotate(90deg); /* BROKEN: wildly wrong image colours */
+  opacity: 0.3; /* BROKEN: near-invisible images */
+  transform: scaleX(-1); /* BROKEN: horizontally mirrored */
 }
 
 .columns > div > div {
   order: 1;
+  background-color: yellow; /* BROKEN: garish cell background */
+  padding: 40px;
+  font-size: 2rem; /* BROKEN: oversized text */
+  color: blue; /* BROKEN: wrong text colour */
+  text-decoration: line-through; /* BROKEN: strikethrough */
+  letter-spacing: 0.4em; /* BROKEN: stretched letters */
 }
 
 .columns > div > .columns-img-col {
   order: 0;
+  outline: 10px solid lime; /* BROKEN: lime green outline */
 }
 
 .columns > div > .columns-img-col img {
@@ -21,13 +36,15 @@
 
 @media (width >= 900px) {
   .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    align-items: flex-end; /* BROKEN: was center */
+    flex-direction: column; /* BROKEN: was unset — stacks on desktop too */
+    gap: 0; /* BROKEN: removed gap */
+    box-shadow: inset 0 0 0 15px orange; /* BROKEN: orange inset shadow */
   }
 
   .columns > div > div {
-    flex: 1;
+    flex: unset; /* BROKEN: was 1 — breaks equal column sizing */
     order: unset;
+    width: 30%; /* BROKEN: narrow columns instead of equal split */
   }
 }

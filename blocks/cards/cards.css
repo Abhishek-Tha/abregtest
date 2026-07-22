@@ -26,34 +26,43 @@
   object-fit: cover;
 }
 
-/* body-highlight variation: content left, image right */
+/* body-highlight variation: HEAVILY BROKEN — local test only, do not commit */
 .cards.body-highlight > ul {
   grid-template-columns: 1fr;
-  gap: 33px;
+  gap: 32px;
 }
 
 .cards.body-highlight > ul > li {
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* BROKEN: was row — destroys horizontal layout */
   align-items: stretch;
-  border: 1px solid #dadada;
-  background-color: #f0f4ff; /* tweaked: light blue tint instead of var(--background-color) */
+  border: 6px dashed red; /* BROKEN: was 1px solid #dadada */
+  background-color: hotpink; /* BROKEN: was var(--background-color) */
   overflow: hidden;
-  border-radius: 10px; /* tweaked: added rounded corners */
+  transform: skewX(-15deg); /* BROKEN: severe visual distortion */
+  box-shadow: 0 0 0 20px orange; /* BROKEN: massive orange halo */
 }
 
 .cards.body-highlight .cards-card-body {
   flex: 1 1 50%;
-  margin: 32px 40px; /* tweaked: increased margin from 24px 32px */
+  margin: 24px 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: yellow; /* BROKEN: garish background */
+  font-size: 2.5rem; /* BROKEN: oversized text */
+  color: red; /* BROKEN: wrong text colour */
+  text-decoration: line-through; /* BROKEN: strikethrough text */
+  letter-spacing: 0.5em; /* BROKEN: stretched letter spacing */
 }
 
 .cards.body-highlight .cards-card-image {
   flex: 0 0 50%;
   order: 2;
   line-height: 0;
+  opacity: 0.1; /* BROKEN: image nearly invisible */
+  filter: grayscale(100%) invert(1) hue-rotate(180deg); /* BROKEN: inverted + hue-rotated */
+  transform: rotate(180deg); /* BROKEN: image upside down */
 }
 
 .cards.body-highlight > ul > li img {
