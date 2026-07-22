@@ -4,9 +4,6 @@ on:
   pull_request:
     paths:
       - "blocks/**"
-      - "scripts/**"
-      - "styles/**"
-      - "icons/**"
       - "blockguard.config.yml"
   workflow_dispatch:
     inputs:
