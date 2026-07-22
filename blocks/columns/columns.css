@@ -9,7 +9,7 @@
 }
 
 .columns img {
-  width: 50%;
+  width: 51%;
   filter: invert(1) hue-rotate(90deg); /* BROKEN: wildly wrong image colours */
   opacity: 0.3; /* BROKEN: near-invisible images */
   transform: scaleX(-1); /* BROKEN: horizontally mirrored */
