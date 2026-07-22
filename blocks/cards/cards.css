@@ -26,7 +26,7 @@
   object-fit: cover;
 }
 
-/* body-highlight variation: content left, image right */
+/* body-highlight variation: DELIBERATELY BROKEN for BlockGuard regression test */
 .cards.body-highlight > ul {
   grid-template-columns: 1fr;
   gap: 32px;
@@ -34,11 +34,12 @@
 
 .cards.body-highlight > ul > li {
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* BROKEN: was row — destroys horizontal layout */
   align-items: stretch;
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  border: 4px solid red; /* BROKEN: was 1px solid #dadada */
+  background-color: hotpink; /* BROKEN: was var(--background-color) */
   overflow: hidden;
+  transform: skewX(-10deg); /* BROKEN: visual distortion */
 }
 
 .cards.body-highlight .cards-card-body {
@@ -47,12 +48,17 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: yellow; /* BROKEN: garish background */
+  font-size: 2rem; /* BROKEN: oversized text */
+  color: red; /* BROKEN: wrong text colour */
 }
 
 .cards.body-highlight .cards-card-image {
   flex: 0 0 50%;
   order: 2;
   line-height: 0;
+  opacity: 0.2; /* BROKEN: image nearly invisible */
+  filter: grayscale(100%) invert(1); /* BROKEN: inverted greyscale image */
 }
 
 .cards.body-highlight > ul > li img {
