@@ -29,7 +29,7 @@
 /* body-highlight variation: HEAVILY BROKEN — local test only, do not commit */
 .cards.body-highlight > ul {
   grid-template-columns: 1fr;
-  gap: 32px;
+  gap: 3px;
 }
 
 .cards.body-highlight > ul > li {

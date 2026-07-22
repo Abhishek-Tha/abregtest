@@ -18,7 +18,7 @@
 .columns > div > div {
   order: 1;
   background-color: yellow; /* BROKEN: garish cell background */
-  padding: 40px;
+  padding: 4px;
   font-size: 2rem; /* BROKEN: oversized text */
   color: blue; /* BROKEN: wrong text colour */
   text-decoration: line-through; /* BROKEN: strikethrough */
