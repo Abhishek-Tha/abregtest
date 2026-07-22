@@ -40,7 +40,7 @@
   background-color: hotpink; /* BROKEN: was var(--background-color) */
   overflow: hidden;
   transform: skewX(-15deg); /* BROKEN: severe visual distortion */
-  box-shadow: 0 0 0 20px orange; /* BROKEN: massive orange halo */
+  box-shadow: 0 0 0 23px orange; /* BROKEN: massive orange halo */
 }
 
 .cards.body-highlight .cards-card-body {
