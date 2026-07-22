@@ -26,33 +26,39 @@
   object-fit: cover;
 }
 
-/* body-highlight variation: content left, image right */
+/* body-highlight variation: REGRESSION ~30-40% visual deviation */
 .cards.body-highlight > ul {
   grid-template-columns: 1fr;
-  gap: 32px;
+  gap: 40px; /* REGRESSION: was 32px */
 }
 
 .cards.body-highlight > ul > li {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  align-items: flex-start; /* REGRESSION: was stretch — breaks vertical image fill */
+  border: 1px solid #b0b8c8; /* REGRESSION: slightly bluish border colour */
+  background-color: #f5f7ff; /* REGRESSION: light blue-grey tint instead of --background-color */
   overflow: hidden;
+  border-radius: 6px; /* REGRESSION: rounded corners not present before */
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%); /* REGRESSION: drop shadow shifts visual weight */
 }
 
 .cards.body-highlight .cards-card-body {
-  flex: 1 1 50%;
-  margin: 24px 32px;
+  flex: 1 1 55%; /* REGRESSION: was 50% — shifts image/content ratio */
+  margin: 32px 40px; /* REGRESSION: was 24px 32px — larger spacing pushes content */
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 1.1rem; /* REGRESSION: slightly larger text reflows content area */
+  line-height: 1.4; /* REGRESSION: tighter line-height */
 }
 
 .cards.body-highlight .cards-card-image {
-  flex: 0 0 50%;
+  flex: 0 0 45%; /* REGRESSION: was 50% — narrower image */
   order: 2;
   line-height: 0;
+  opacity: 0.8; /* REGRESSION: image slightly faded */
+  filter: saturate(1.4); /* REGRESSION: oversaturated image colours */
 }
 
 .cards.body-highlight > ul > li img {
@@ -60,6 +66,7 @@
   height: 100%;
   aspect-ratio: unset;
   object-fit: cover;
+  border-radius: 0 6px 6px 0; /* REGRESSION: rounded right edge on image */
 }
 
 @media (width <= 768px) {
@@ -74,5 +81,6 @@
 
   .cards.body-highlight > ul > li img {
     aspect-ratio: 4 / 3;
+    border-radius: 6px 6px 0 0; /* REGRESSION: rounded top edge on mobile */
   }
 }

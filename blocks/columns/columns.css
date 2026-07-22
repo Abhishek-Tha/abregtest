@@ -1,14 +1,21 @@
 .columns > div {
   display: flex;
   flex-direction: column;
+  background-color: #e8f0fe; /* REGRESSION: light blue tint on all column wrappers */
+  padding: 16px; /* REGRESSION: unexpected padding shifts layout */
+  gap: 32px; /* REGRESSION: was no gap on mobile */
 }
 
 .columns img {
   width: 100%;
+  opacity: 0.6; /* REGRESSION: images appear faded */
+  border-radius: 12px; /* REGRESSION: rounded images change visual shape */
 }
 
 .columns > div > div {
   order: 1;
+  font-size: 1.25rem; /* REGRESSION: slightly oversized text shifts layout */
+  line-height: 1.2; /* REGRESSION: tighter line height */
 }
 
 .columns > div > .columns-img-col {
@@ -21,9 +28,9 @@
 
 @media (width >= 900px) {
   .columns > div {
-    align-items: center;
+    align-items: flex-start; /* REGRESSION: was center — content no longer vertically centered */
     flex-direction: unset;
-    gap: 24px;
+    gap: 48px; /* REGRESSION: was 24px — wider gap shifts proportions */
   }
 
   .columns > div > div {
@@ -37,12 +44,18 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  background-color: #fff3cd; /* REGRESSION: yellowish tint on stack-view wrapper */
+  border-left: 4px solid #f0a500; /* REGRESSION: unexpected left border accent */
+  padding: 24px; /* REGRESSION: extra padding changes visual box size */
 }
 
 .columns.stack-view > div > div {
   flex: unset;
   width: 100%;
   order: unset;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%); /* REGRESSION: card-like shadow not present before */
+  padding: 16px; /* REGRESSION: inner padding changes text position */
 }
 
 .columns.stack-view > div > .columns-img-col {
@@ -52,13 +65,15 @@
 .columns.stack-view img {
   width: 100%;
   display: block;
+  filter: saturate(1.8); /* REGRESSION: over-saturated images */
+  transform: scale(0.95); /* REGRESSION: slightly shrunk images */
 }
 
 @media (width >= 900px) {
   .columns.stack-view > div {
     flex-direction: column;
     align-items: stretch;
-    gap: 24px;
+    gap: 32px; /* REGRESSION: was 24px */
   }
 
   .columns.stack-view > div > div {
