@@ -14,7 +14,7 @@
 
 .columns > div > div {
   order: 1;
-  font-size: 1.25rem; /* REGRESSION: slightly oversized text shifts layout */
+  font-size: 1.26rem; /* REGRESSION: slightly oversized text shifts layout */
   line-height: 1; /* REGRESSION: tighter line height */
 }
 
