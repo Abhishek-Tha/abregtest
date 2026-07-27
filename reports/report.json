@@ -1,0 +1,657 @@
+{
+  "runId": "bg-1785137047659",
+  "generatedAt": "2026-07-27T07:25:20.169Z",
+  "baseRef": "origin/main",
+  "headRef": "45457c24fe104288200ec872ffed92126385e5b0",
+  "impact": {
+    "baseRef": "origin/main",
+    "headRef": "45457c24fe104288200ec872ffed92126385e5b0",
+    "directlyChangedBlocks": [
+      {
+        "name": "cards",
+        "changedFiles": [
+          "blocks/cards/cards.css"
+        ],
+        "reason": "direct",
+        "changedVariations": [
+          "body-highlight"
+        ]
+      },
+      {
+        "name": "columns",
+        "changedFiles": [
+          "blocks/columns/columns.css"
+        ],
+        "reason": "direct",
+        "changedVariations": []
+      }
+    ],
+    "transitivelyChangedBlocks": [
+      {
+        "name": "fragment",
+        "changedFiles": [
+          "scripts/scripts.js"
+        ],
+        "reason": "transitive",
+        "changedVariations": []
+      }
+    ],
+    "sharedFilesChanged": [
+      "scripts/scripts.js",
+      "styles/styles.css"
+    ],
+    "risk": "site-wide",
+    "allAffectedBlocks": [
+      "cards",
+      "columns",
+      "fragment"
+    ],
+    "allAffectedVariations": {
+      "cards": [
+        "body-highlight"
+      ],
+      "columns": [],
+      "fragment": []
+    }
+  },
+  "totalAffectedPages": 3,
+  "testedPages": 12,
+  "skippedPages": 0,
+  "unableToTestPages": 0,
+  "mode": "representative",
+  "viewports": [
+    "mobile-base",
+    "mobile-900",
+    "desktop-900",
+    "desktop-max"
+  ],
+  "comparisons": [
+    {
+      "pagePath": "/home",
+      "baseUrl": "https://main--abregtest--abhishek-tha.aem.live/home",
+      "branchUrl": "https://HEAD--abregtest--abhishek-tha.aem.page/home",
+      "viewport": "desktop-max",
+      "status": "failed",
+      "selectionReasons": [
+        "covers-variation:columns:columns-2-cols",
+        "covers-variation:cards:body-highlight"
+      ],
+      "affectedBlocks": [
+        "columns (columns-2-cols)",
+        "cards (body-highlight)"
+      ],
+      "affectedVariations": {
+        "columns": [],
+        "cards": [
+          "body-highlight"
+        ]
+      },
+      "visual": {
+        "baselinePath": "/tmp/blockguard-report/comparisons/_home/desktop-max/cards_body-highlight/before-desktop-max.png",
+        "branchPath": "/tmp/blockguard-report/comparisons/_home/desktop-max/cards_body-highlight/after-desktop-max.png",
+        "diffPath": "/tmp/blockguard-report/comparisons/_home/desktop-max/cards_body-highlight/diff-desktop-max.png",
+        "totalPixels": 714240,
+        "diffPixels": 428931,
+        "mismatchPercent": 60.05,
+        "width": 1440,
+        "height": 496
+      },
+      "summary": "Visual diff 60.0% exceeds failure threshold (3% for scope=\"block\", viewport=\"desktop-max\")",
+      "beforeScreenshot": "/tmp/blockguard-report/comparisons/_home/desktop-max/columns_columns-2-cols/before-full-desktop-max.png",
+      "afterScreenshot": "/tmp/blockguard-report/comparisons/_home/desktop-max/columns_columns-2-cols/after-full-desktop-max.png",
+      "diffScreenshot": "/tmp/blockguard-report/comparisons/_home/desktop-max/columns_columns-2-cols/diff-desktop-max.png",
+      "blockScreenshots": {
+        "columns (columns-2-cols)": {
+          "before": "/tmp/blockguard-report/comparisons/_home/desktop-max/columns_columns-2-cols/before-full-desktop-max.png",
+          "after": "/tmp/blockguard-report/comparisons/_home/desktop-max/columns_columns-2-cols/after-full-desktop-max.png",
+          "diff": "/tmp/blockguard-report/comparisons/_home/desktop-max/columns_columns-2-cols/diff-desktop-max.png"
+        },
+        "cards (body-highlight)": {
+          "before": "/tmp/blockguard-report/comparisons/_home/desktop-max/cards_body-highlight/before-desktop-max.png",
+          "after": "/tmp/blockguard-report/comparisons/_home/desktop-max/cards_body-highlight/after-desktop-max.png",
+          "diff": "/tmp/blockguard-report/comparisons/_home/desktop-max/cards_body-highlight/diff-desktop-max.png"
+        }
+      }
+    },
+    {
+      "pagePath": "/home",
+      "baseUrl": "https://main--abregtest--abhishek-tha.aem.live/home",
+      "branchUrl": "https://HEAD--abregtest--abhishek-tha.aem.page/home",
+      "viewport": "desktop-900",
+      "status": "failed",
+      "selectionReasons": [
+        "covers-variation:columns:columns-2-cols",
+        "covers-variation:cards:body-highlight"
+      ],
+      "affectedBlocks": [
+        "columns (columns-2-cols)",
+        "cards (body-highlight)"
+      ],
+      "affectedVariations": {
+        "columns": [],
+        "cards": [
+          "body-highlight"
+        ]
+      },
+      "visual": {
+        "baselinePath": "/tmp/blockguard-report/comparisons/_home/desktop-900/cards_body-highlight/before-desktop-900.png",
+        "branchPath": "/tmp/blockguard-report/comparisons/_home/desktop-900/cards_body-highlight/after-desktop-900.png",
+        "diffPath": "/tmp/blockguard-report/comparisons/_home/desktop-900/cards_body-highlight/diff-desktop-900.png",
+        "totalPixels": 446400,
+        "diffPixels": 296813,
+        "mismatchPercent": 66.49,
+        "width": 900,
+        "height": 496
+      },
+      "summary": "Visual diff 66.5% exceeds failure threshold (3% for scope=\"block\", viewport=\"desktop-900\")",
+      "beforeScreenshot": "/tmp/blockguard-report/comparisons/_home/desktop-900/columns_columns-2-cols/before-full-desktop-900.png",
+      "afterScreenshot": "/tmp/blockguard-report/comparisons/_home/desktop-900/columns_columns-2-cols/after-full-desktop-900.png",
+      "diffScreenshot": "/tmp/blockguard-report/comparisons/_home/desktop-900/columns_columns-2-cols/diff-desktop-900.png",
+      "blockScreenshots": {
+        "columns (columns-2-cols)": {
+          "before": "/tmp/blockguard-report/comparisons/_home/desktop-900/columns_columns-2-cols/before-full-desktop-900.png",
+          "after": "/tmp/blockguard-report/comparisons/_home/desktop-900/columns_columns-2-cols/after-full-desktop-900.png",
+          "diff": "/tmp/blockguard-report/comparisons/_home/desktop-900/columns_columns-2-cols/diff-desktop-900.png"
+        },
+        "cards (body-highlight)": {
+          "before": "/tmp/blockguard-report/comparisons/_home/desktop-900/cards_body-highlight/before-desktop-900.png",
+          "after": "/tmp/blockguard-report/comparisons/_home/desktop-900/cards_body-highlight/after-desktop-900.png",
+          "diff": "/tmp/blockguard-report/comparisons/_home/desktop-900/cards_body-highlight/diff-desktop-900.png"
+        }
+      }
+    },
+    {
+      "pagePath": "/home",
+      "baseUrl": "https://main--abregtest--abhishek-tha.aem.live/home",
+      "branchUrl": "https://HEAD--abregtest--abhishek-tha.aem.page/home",
+      "viewport": "mobile-base",
+      "status": "failed",
+      "selectionReasons": [
+        "covers-variation:columns:columns-2-cols",
+        "covers-variation:cards:body-highlight"
+      ],
+      "affectedBlocks": [
+        "columns (columns-2-cols)",
+        "cards (body-highlight)"
+      ],
+      "affectedVariations": {
+        "columns": [],
+        "cards": [
+          "body-highlight"
+        ]
+      },
+      "visual": {
+        "baselinePath": "/tmp/blockguard-report/comparisons/_home/mobile-base/columns_columns-2-cols/before-full-mobile-base.png",
+        "branchPath": "/tmp/blockguard-report/comparisons/_home/mobile-base/columns_columns-2-cols/after-full-mobile-base.png",
+        "diffPath": "/tmp/blockguard-report/comparisons/_home/mobile-base/columns_columns-2-cols/diff-mobile-base.png",
+        "totalPixels": 2685375,
+        "diffPixels": 2006151,
+        "mismatchPercent": 74.71,
+        "width": 375,
+        "height": 7161
+      },
+      "summary": "Visual diff 74.7% exceeds failure threshold (3% for scope=\"block\", viewport=\"mobile-base\")",
+      "beforeScreenshot": "/tmp/blockguard-report/comparisons/_home/mobile-base/columns_columns-2-cols/before-full-mobile-base.png",
+      "afterScreenshot": "/tmp/blockguard-report/comparisons/_home/mobile-base/columns_columns-2-cols/after-full-mobile-base.png",
+      "diffScreenshot": "/tmp/blockguard-report/comparisons/_home/mobile-base/columns_columns-2-cols/diff-mobile-base.png",
+      "blockScreenshots": {
+        "columns (columns-2-cols)": {
+          "before": "/tmp/blockguard-report/comparisons/_home/mobile-base/columns_columns-2-cols/before-full-mobile-base.png",
+          "after": "/tmp/blockguard-report/comparisons/_home/mobile-base/columns_columns-2-cols/after-full-mobile-base.png",
+          "diff": "/tmp/blockguard-report/comparisons/_home/mobile-base/columns_columns-2-cols/diff-mobile-base.png"
+        },
+        "cards (body-highlight)": {
+          "before": "/tmp/blockguard-report/comparisons/_home/mobile-base/cards_body-highlight/before-mobile-base.png",
+          "after": "/tmp/blockguard-report/comparisons/_home/mobile-base/cards_body-highlight/after-mobile-base.png",
+          "diff": "/tmp/blockguard-report/comparisons/_home/mobile-base/cards_body-highlight/diff-mobile-base.png"
+        }
+      }
+    },
+    {
+      "pagePath": "/",
+      "baseUrl": "https://main--abregtest--abhishek-tha.aem.live/",
+      "branchUrl": "https://HEAD--abregtest--abhishek-tha.aem.page/",
+      "viewport": "mobile-base",
+      "status": "failed",
+      "selectionReasons": [
+        "covers-variation:columns:columns-2-cols",
+        "covers-variation:cards:default"
+      ],
+      "affectedBlocks": [
+        "columns (columns-2-cols)",
+        "cards"
+      ],
+      "affectedVariations": {
+        "columns": [],
+        "cards": []
+      },
+      "visual": {
+        "baselinePath": "/tmp/blockguard-report/comparisons/_/mobile-base/cards/before-mobile-base.png",
+        "branchPath": "/tmp/blockguard-report/comparisons/_/mobile-base/cards/after-mobile-base.png",
+        "diffPath": "/tmp/blockguard-report/comparisons/_/mobile-base/cards/diff-mobile-base.png",
+        "totalPixels": 1574250,
+        "diffPixels": 1170734,
+        "mismatchPercent": 74.37,
+        "width": 375,
+        "height": 4198
+      },
+      "summary": "Visual diff 74.4% exceeds failure threshold (3% for scope=\"block\", viewport=\"mobile-base\")",
+      "beforeScreenshot": "/tmp/blockguard-report/comparisons/_/mobile-base/columns_columns-2-cols/before-full-mobile-base.png",
+      "afterScreenshot": "/tmp/blockguard-report/comparisons/_/mobile-base/columns_columns-2-cols/after-full-mobile-base.png",
+      "diffScreenshot": "/tmp/blockguard-report/comparisons/_/mobile-base/columns_columns-2-cols/diff-mobile-base.png",
+      "blockScreenshots": {
+        "columns (columns-2-cols)": {
+          "before": "/tmp/blockguard-report/comparisons/_/mobile-base/columns_columns-2-cols/before-full-mobile-base.png",
+          "after": "/tmp/blockguard-report/comparisons/_/mobile-base/columns_columns-2-cols/after-full-mobile-base.png",
+          "diff": "/tmp/blockguard-report/comparisons/_/mobile-base/columns_columns-2-cols/diff-mobile-base.png"
+        },
+        "cards": {
+          "before": "/tmp/blockguard-report/comparisons/_/mobile-base/cards/before-mobile-base.png",
+          "after": "/tmp/blockguard-report/comparisons/_/mobile-base/cards/after-mobile-base.png",
+          "diff": "/tmp/blockguard-report/comparisons/_/mobile-base/cards/diff-mobile-base.png"
+        }
+      }
+    },
+    {
+      "pagePath": "/",
+      "baseUrl": "https://main--abregtest--abhishek-tha.aem.live/",
+      "branchUrl": "https://HEAD--abregtest--abhishek-tha.aem.page/",
+      "viewport": "mobile-900",
+      "status": "failed",
+      "selectionReasons": [
+        "covers-variation:columns:columns-2-cols",
+        "covers-variation:cards:default"
+      ],
+      "affectedBlocks": [
+        "columns (columns-2-cols)",
+        "cards"
+      ],
+      "affectedVariations": {
+        "columns": [],
+        "cards": []
+      },
+      "visual": {
+        "baselinePath": "/tmp/blockguard-report/comparisons/_/mobile-900/cards/before-mobile-900.png",
+        "branchPath": "/tmp/blockguard-report/comparisons/_/mobile-900/cards/after-mobile-900.png",
+        "diffPath": "/tmp/blockguard-report/comparisons/_/mobile-900/cards/diff-mobile-900.png",
+        "totalPixels": 3644546,
+        "diffPixels": 2365903,
+        "mismatchPercent": 64.92,
+        "width": 899,
+        "height": 4054
+      },
+      "summary": "Visual diff 64.9% exceeds failure threshold (3% for scope=\"block\", viewport=\"mobile-900\")",
+      "beforeScreenshot": "/tmp/blockguard-report/comparisons/_/mobile-900/columns_columns-2-cols/before-full-mobile-900.png",
+      "afterScreenshot": "/tmp/blockguard-report/comparisons/_/mobile-900/columns_columns-2-cols/after-full-mobile-900.png",
+      "diffScreenshot": "/tmp/blockguard-report/comparisons/_/mobile-900/columns_columns-2-cols/diff-mobile-900.png",
+      "blockScreenshots": {
+        "columns (columns-2-cols)": {
+          "before": "/tmp/blockguard-report/comparisons/_/mobile-900/columns_columns-2-cols/before-full-mobile-900.png",
+          "after": "/tmp/blockguard-report/comparisons/_/mobile-900/columns_columns-2-cols/after-full-mobile-900.png",
+          "diff": "/tmp/blockguard-report/comparisons/_/mobile-900/columns_columns-2-cols/diff-mobile-900.png"
+        },
+        "cards": {
+          "before": "/tmp/blockguard-report/comparisons/_/mobile-900/cards/before-mobile-900.png",
+          "after": "/tmp/blockguard-report/comparisons/_/mobile-900/cards/after-mobile-900.png",
+          "diff": "/tmp/blockguard-report/comparisons/_/mobile-900/cards/diff-mobile-900.png"
+        }
+      }
+    },
+    {
+      "pagePath": "/home",
+      "baseUrl": "https://main--abregtest--abhishek-tha.aem.live/home",
+      "branchUrl": "https://HEAD--abregtest--abhishek-tha.aem.page/home",
+      "viewport": "mobile-900",
+      "status": "failed",
+      "selectionReasons": [
+        "covers-variation:columns:columns-2-cols",
+        "covers-variation:cards:body-highlight"
+      ],
+      "affectedBlocks": [
+        "columns (columns-2-cols)",
+        "cards (body-highlight)"
+      ],
+      "affectedVariations": {
+        "columns": [],
+        "cards": [
+          "body-highlight"
+        ]
+      },
+      "visual": {
+        "baselinePath": "/tmp/blockguard-report/comparisons/_home/mobile-900/cards_body-highlight/before-mobile-900.png",
+        "branchPath": "/tmp/blockguard-report/comparisons/_home/mobile-900/cards_body-highlight/after-mobile-900.png",
+        "diffPath": "/tmp/blockguard-report/comparisons/_home/mobile-900/cards_body-highlight/diff-mobile-900.png",
+        "totalPixels": 445904,
+        "diffPixels": 300981,
+        "mismatchPercent": 67.5,
+        "width": 899,
+        "height": 496
+      },
+      "summary": "Visual diff 67.5% exceeds failure threshold (3% for scope=\"block\", viewport=\"mobile-900\")",
+      "beforeScreenshot": "/tmp/blockguard-report/comparisons/_home/mobile-900/columns_columns-2-cols/before-full-mobile-900.png",
+      "afterScreenshot": "/tmp/blockguard-report/comparisons/_home/mobile-900/columns_columns-2-cols/after-full-mobile-900.png",
+      "diffScreenshot": "/tmp/blockguard-report/comparisons/_home/mobile-900/columns_columns-2-cols/diff-mobile-900.png",
+      "blockScreenshots": {
+        "columns (columns-2-cols)": {
+          "before": "/tmp/blockguard-report/comparisons/_home/mobile-900/columns_columns-2-cols/before-full-mobile-900.png",
+          "after": "/tmp/blockguard-report/comparisons/_home/mobile-900/columns_columns-2-cols/after-full-mobile-900.png",
+          "diff": "/tmp/blockguard-report/comparisons/_home/mobile-900/columns_columns-2-cols/diff-mobile-900.png"
+        },
+        "cards (body-highlight)": {
+          "before": "/tmp/blockguard-report/comparisons/_home/mobile-900/cards_body-highlight/before-mobile-900.png",
+          "after": "/tmp/blockguard-report/comparisons/_home/mobile-900/cards_body-highlight/after-mobile-900.png",
+          "diff": "/tmp/blockguard-report/comparisons/_home/mobile-900/cards_body-highlight/diff-mobile-900.png"
+        }
+      }
+    },
+    {
+      "pagePath": "/",
+      "baseUrl": "https://main--abregtest--abhishek-tha.aem.live/",
+      "branchUrl": "https://HEAD--abregtest--abhishek-tha.aem.page/",
+      "viewport": "desktop-900",
+      "status": "failed",
+      "selectionReasons": [
+        "covers-variation:columns:columns-2-cols",
+        "covers-variation:cards:default"
+      ],
+      "affectedBlocks": [
+        "columns (columns-2-cols)",
+        "cards"
+      ],
+      "affectedVariations": {
+        "columns": [],
+        "cards": []
+      },
+      "visual": {
+        "baselinePath": "/tmp/blockguard-report/comparisons/_/desktop-900/cards/before-desktop-900.png",
+        "branchPath": "/tmp/blockguard-report/comparisons/_/desktop-900/cards/after-desktop-900.png",
+        "diffPath": "/tmp/blockguard-report/comparisons/_/desktop-900/cards/diff-desktop-900.png",
+        "totalPixels": 3648600,
+        "diffPixels": 2405673,
+        "mismatchPercent": 65.93,
+        "width": 900,
+        "height": 4054
+      },
+      "summary": "Visual diff 65.9% exceeds failure threshold (3% for scope=\"block\", viewport=\"desktop-900\")",
+      "beforeScreenshot": "/tmp/blockguard-report/comparisons/_/desktop-900/columns_columns-2-cols/before-full-desktop-900.png",
+      "afterScreenshot": "/tmp/blockguard-report/comparisons/_/desktop-900/columns_columns-2-cols/after-full-desktop-900.png",
+      "diffScreenshot": "/tmp/blockguard-report/comparisons/_/desktop-900/columns_columns-2-cols/diff-desktop-900.png",
+      "blockScreenshots": {
+        "columns (columns-2-cols)": {
+          "before": "/tmp/blockguard-report/comparisons/_/desktop-900/columns_columns-2-cols/before-full-desktop-900.png",
+          "after": "/tmp/blockguard-report/comparisons/_/desktop-900/columns_columns-2-cols/after-full-desktop-900.png",
+          "diff": "/tmp/blockguard-report/comparisons/_/desktop-900/columns_columns-2-cols/diff-desktop-900.png"
+        },
+        "cards": {
+          "before": "/tmp/blockguard-report/comparisons/_/desktop-900/cards/before-desktop-900.png",
+          "after": "/tmp/blockguard-report/comparisons/_/desktop-900/cards/after-desktop-900.png",
+          "diff": "/tmp/blockguard-report/comparisons/_/desktop-900/cards/diff-desktop-900.png"
+        }
+      }
+    },
+    {
+      "pagePath": "/",
+      "baseUrl": "https://main--abregtest--abhishek-tha.aem.live/",
+      "branchUrl": "https://HEAD--abregtest--abhishek-tha.aem.page/",
+      "viewport": "desktop-max",
+      "status": "failed",
+      "selectionReasons": [
+        "covers-variation:columns:columns-2-cols",
+        "covers-variation:cards:default"
+      ],
+      "affectedBlocks": [
+        "columns (columns-2-cols)",
+        "cards"
+      ],
+      "affectedVariations": {
+        "columns": [],
+        "cards": []
+      },
+      "visual": {
+        "baselinePath": "/tmp/blockguard-report/comparisons/_/desktop-max/cards/before-desktop-max.png",
+        "branchPath": "/tmp/blockguard-report/comparisons/_/desktop-max/cards/after-desktop-max.png",
+        "diffPath": "/tmp/blockguard-report/comparisons/_/desktop-max/cards/diff-desktop-max.png",
+        "totalPixels": 5785920,
+        "diffPixels": 2484927,
+        "mismatchPercent": 42.95,
+        "width": 1440,
+        "height": 4018
+      },
+      "summary": "Visual diff 43.0% exceeds failure threshold (3% for scope=\"block\", viewport=\"desktop-max\")",
+      "beforeScreenshot": "/tmp/blockguard-report/comparisons/_/desktop-max/columns_columns-2-cols/before-full-desktop-max.png",
+      "afterScreenshot": "/tmp/blockguard-report/comparisons/_/desktop-max/columns_columns-2-cols/after-full-desktop-max.png",
+      "diffScreenshot": "/tmp/blockguard-report/comparisons/_/desktop-max/columns_columns-2-cols/diff-desktop-max.png",
+      "blockScreenshots": {
+        "columns (columns-2-cols)": {
+          "before": "/tmp/blockguard-report/comparisons/_/desktop-max/columns_columns-2-cols/before-full-desktop-max.png",
+          "after": "/tmp/blockguard-report/comparisons/_/desktop-max/columns_columns-2-cols/after-full-desktop-max.png",
+          "diff": "/tmp/blockguard-report/comparisons/_/desktop-max/columns_columns-2-cols/diff-desktop-max.png"
+        },
+        "cards": {
+          "before": "/tmp/blockguard-report/comparisons/_/desktop-max/cards/before-desktop-max.png",
+          "after": "/tmp/blockguard-report/comparisons/_/desktop-max/cards/after-desktop-max.png",
+          "diff": "/tmp/blockguard-report/comparisons/_/desktop-max/cards/diff-desktop-max.png"
+        }
+      }
+    },
+    {
+      "pagePath": "/landing",
+      "baseUrl": "https://main--abregtest--abhishek-tha.aem.live/landing",
+      "branchUrl": "https://HEAD--abregtest--abhishek-tha.aem.page/landing",
+      "viewport": "mobile-900",
+      "status": "failed",
+      "selectionReasons": [
+        "covers-variation:cards:default",
+        "covers-variation:columns:stack-view"
+      ],
+      "affectedBlocks": [
+        "cards",
+        "columns (stack-view)",
+        "columns (columns-2-cols)"
+      ],
+      "affectedVariations": {
+        "cards": [],
+        "columns": []
+      },
+      "visual": {
+        "baselinePath": "/tmp/blockguard-report/comparisons/_landing/mobile-900/columns_columns-2-cols/before-full-mobile-900.png",
+        "branchPath": "/tmp/blockguard-report/comparisons/_landing/mobile-900/columns_columns-2-cols/after-full-mobile-900.png",
+        "diffPath": "/tmp/blockguard-report/comparisons/_landing/mobile-900/columns_columns-2-cols/diff-mobile-900.png",
+        "totalPixels": 5753600,
+        "diffPixels": 3773539,
+        "mismatchPercent": 65.59,
+        "width": 899,
+        "height": 6400
+      },
+      "summary": "Visual diff 65.6% exceeds failure threshold (3% for scope=\"block\", viewport=\"mobile-900\")",
+      "beforeScreenshot": "/tmp/blockguard-report/comparisons/_landing/mobile-900/cards/before-mobile-900.png",
+      "afterScreenshot": "/tmp/blockguard-report/comparisons/_landing/mobile-900/cards/after-mobile-900.png",
+      "diffScreenshot": "/tmp/blockguard-report/comparisons/_landing/mobile-900/cards/diff-mobile-900.png",
+      "blockScreenshots": {
+        "cards": {
+          "before": "/tmp/blockguard-report/comparisons/_landing/mobile-900/cards/before-mobile-900.png",
+          "after": "/tmp/blockguard-report/comparisons/_landing/mobile-900/cards/after-mobile-900.png",
+          "diff": "/tmp/blockguard-report/comparisons/_landing/mobile-900/cards/diff-mobile-900.png"
+        },
+        "columns (stack-view)": {
+          "before": "/tmp/blockguard-report/comparisons/_landing/mobile-900/columns_stack-view/before-mobile-900.png",
+          "after": "/tmp/blockguard-report/comparisons/_landing/mobile-900/columns_stack-view/after-mobile-900.png",
+          "diff": "/tmp/blockguard-report/comparisons/_landing/mobile-900/columns_stack-view/diff-mobile-900.png"
+        },
+        "columns (columns-2-cols)": {
+          "before": "/tmp/blockguard-report/comparisons/_landing/mobile-900/columns_columns-2-cols/before-full-mobile-900.png",
+          "after": "/tmp/blockguard-report/comparisons/_landing/mobile-900/columns_columns-2-cols/after-full-mobile-900.png",
+          "diff": "/tmp/blockguard-report/comparisons/_landing/mobile-900/columns_columns-2-cols/diff-mobile-900.png"
+        }
+      }
+    },
+    {
+      "pagePath": "/landing",
+      "baseUrl": "https://main--abregtest--abhishek-tha.aem.live/landing",
+      "branchUrl": "https://HEAD--abregtest--abhishek-tha.aem.page/landing",
+      "viewport": "mobile-base",
+      "status": "failed",
+      "selectionReasons": [
+        "covers-variation:cards:default",
+        "covers-variation:columns:stack-view"
+      ],
+      "affectedBlocks": [
+        "cards",
+        "columns (stack-view)",
+        "columns (columns-2-cols)"
+      ],
+      "affectedVariations": {
+        "cards": [],
+        "columns": []
+      },
+      "visual": {
+        "baselinePath": "/tmp/blockguard-report/comparisons/_landing/mobile-base/cards/before-mobile-base.png",
+        "branchPath": "/tmp/blockguard-report/comparisons/_landing/mobile-base/cards/after-mobile-base.png",
+        "diffPath": "/tmp/blockguard-report/comparisons/_landing/mobile-base/cards/diff-mobile-base.png",
+        "totalPixels": 1574250,
+        "diffPixels": 1170832,
+        "mismatchPercent": 74.37,
+        "width": 375,
+        "height": 4198
+      },
+      "summary": "Visual diff 74.4% exceeds failure threshold (3% for scope=\"block\", viewport=\"mobile-base\")",
+      "beforeScreenshot": "/tmp/blockguard-report/comparisons/_landing/mobile-base/cards/before-mobile-base.png",
+      "afterScreenshot": "/tmp/blockguard-report/comparisons/_landing/mobile-base/cards/after-mobile-base.png",
+      "diffScreenshot": "/tmp/blockguard-report/comparisons/_landing/mobile-base/cards/diff-mobile-base.png",
+      "blockScreenshots": {
+        "cards": {
+          "before": "/tmp/blockguard-report/comparisons/_landing/mobile-base/cards/before-mobile-base.png",
+          "after": "/tmp/blockguard-report/comparisons/_landing/mobile-base/cards/after-mobile-base.png",
+          "diff": "/tmp/blockguard-report/comparisons/_landing/mobile-base/cards/diff-mobile-base.png"
+        },
+        "columns (stack-view)": {
+          "before": "/tmp/blockguard-report/comparisons/_landing/mobile-base/columns_stack-view/before-mobile-base.png",
+          "after": "/tmp/blockguard-report/comparisons/_landing/mobile-base/columns_stack-view/after-mobile-base.png",
+          "diff": "/tmp/blockguard-report/comparisons/_landing/mobile-base/columns_stack-view/diff-mobile-base.png"
+        },
+        "columns (columns-2-cols)": {
+          "before": "/tmp/blockguard-report/comparisons/_landing/mobile-base/columns_columns-2-cols/before-full-mobile-base.png",
+          "after": "/tmp/blockguard-report/comparisons/_landing/mobile-base/columns_columns-2-cols/after-full-mobile-base.png",
+          "diff": "/tmp/blockguard-report/comparisons/_landing/mobile-base/columns_columns-2-cols/diff-mobile-base.png"
+        }
+      }
+    },
+    {
+      "pagePath": "/landing",
+      "baseUrl": "https://main--abregtest--abhishek-tha.aem.live/landing",
+      "branchUrl": "https://HEAD--abregtest--abhishek-tha.aem.page/landing",
+      "viewport": "desktop-900",
+      "status": "failed",
+      "selectionReasons": [
+        "covers-variation:cards:default",
+        "covers-variation:columns:stack-view"
+      ],
+      "affectedBlocks": [
+        "cards",
+        "columns (stack-view)",
+        "columns (columns-2-cols)"
+      ],
+      "affectedVariations": {
+        "cards": [],
+        "columns": []
+      },
+      "visual": {
+        "baselinePath": "/tmp/blockguard-report/comparisons/_landing/desktop-900/columns_columns-2-cols/before-full-desktop-900.png",
+        "branchPath": "/tmp/blockguard-report/comparisons/_landing/desktop-900/columns_columns-2-cols/after-full-desktop-900.png",
+        "diffPath": "/tmp/blockguard-report/comparisons/_landing/desktop-900/columns_columns-2-cols/diff-desktop-900.png",
+        "totalPixels": 5760000,
+        "diffPixels": 3841803,
+        "mismatchPercent": 66.7,
+        "width": 900,
+        "height": 6400
+      },
+      "summary": "Visual diff 66.7% exceeds failure threshold (3% for scope=\"block\", viewport=\"desktop-900\")",
+      "beforeScreenshot": "/tmp/blockguard-report/comparisons/_landing/desktop-900/cards/before-desktop-900.png",
+      "afterScreenshot": "/tmp/blockguard-report/comparisons/_landing/desktop-900/cards/after-desktop-900.png",
+      "diffScreenshot": "/tmp/blockguard-report/comparisons/_landing/desktop-900/cards/diff-desktop-900.png",
+      "blockScreenshots": {
+        "cards": {
+          "before": "/tmp/blockguard-report/comparisons/_landing/desktop-900/cards/before-desktop-900.png",
+          "after": "/tmp/blockguard-report/comparisons/_landing/desktop-900/cards/after-desktop-900.png",
+          "diff": "/tmp/blockguard-report/comparisons/_landing/desktop-900/cards/diff-desktop-900.png"
+        },
+        "columns (stack-view)": {
+          "before": "/tmp/blockguard-report/comparisons/_landing/desktop-900/columns_stack-view/before-desktop-900.png",
+          "after": "/tmp/blockguard-report/comparisons/_landing/desktop-900/columns_stack-view/after-desktop-900.png",
+          "diff": "/tmp/blockguard-report/comparisons/_landing/desktop-900/columns_stack-view/diff-desktop-900.png"
+        },
+        "columns (columns-2-cols)": {
+          "before": "/tmp/blockguard-report/comparisons/_landing/desktop-900/columns_columns-2-cols/before-full-desktop-900.png",
+          "after": "/tmp/blockguard-report/comparisons/_landing/desktop-900/columns_columns-2-cols/after-full-desktop-900.png",
+          "diff": "/tmp/blockguard-report/comparisons/_landing/desktop-900/columns_columns-2-cols/diff-desktop-900.png"
+        }
+      }
+    },
+    {
+      "pagePath": "/landing",
+      "baseUrl": "https://main--abregtest--abhishek-tha.aem.live/landing",
+      "branchUrl": "https://HEAD--abregtest--abhishek-tha.aem.page/landing",
+      "viewport": "desktop-max",
+      "status": "failed",
+      "selectionReasons": [
+        "covers-variation:cards:default",
+        "covers-variation:columns:stack-view"
+      ],
+      "affectedBlocks": [
+        "cards",
+        "columns (stack-view)",
+        "columns (columns-2-cols)"
+      ],
+      "affectedVariations": {
+        "cards": [],
+        "columns": []
+      },
+      "visual": {
+        "baselinePath": "/tmp/blockguard-report/comparisons/_landing/desktop-max/columns_stack-view/before-desktop-max.png",
+        "branchPath": "/tmp/blockguard-report/comparisons/_landing/desktop-max/columns_stack-view/after-desktop-max.png",
+        "diffPath": "/tmp/blockguard-report/comparisons/_landing/desktop-max/columns_stack-view/diff-desktop-max.png",
+        "totalPixels": 2701440,
+        "diffPixels": 1604422,
+        "mismatchPercent": 59.39,
+        "width": 1440,
+        "height": 1876
+      },
+      "summary": "Visual diff 59.4% exceeds failure threshold (3% for scope=\"block\", viewport=\"desktop-max\")",
+      "beforeScreenshot": "/tmp/blockguard-report/comparisons/_landing/desktop-max/cards/before-desktop-max.png",
+      "afterScreenshot": "/tmp/blockguard-report/comparisons/_landing/desktop-max/cards/after-desktop-max.png",
+      "diffScreenshot": "/tmp/blockguard-report/comparisons/_landing/desktop-max/cards/diff-desktop-max.png",
+      "blockScreenshots": {
+        "cards": {
+          "before": "/tmp/blockguard-report/comparisons/_landing/desktop-max/cards/before-desktop-max.png",
+          "after": "/tmp/blockguard-report/comparisons/_landing/desktop-max/cards/after-desktop-max.png",
+          "diff": "/tmp/blockguard-report/comparisons/_landing/desktop-max/cards/diff-desktop-max.png"
+        },
+        "columns (stack-view)": {
+          "before": "/tmp/blockguard-report/comparisons/_landing/desktop-max/columns_stack-view/before-desktop-max.png",
+          "after": "/tmp/blockguard-report/comparisons/_landing/desktop-max/columns_stack-view/after-desktop-max.png",
+          "diff": "/tmp/blockguard-report/comparisons/_landing/desktop-max/columns_stack-view/diff-desktop-max.png"
+        },
+        "columns (columns-2-cols)": {
+          "before": "/tmp/blockguard-report/comparisons/_landing/desktop-max/columns_columns-2-cols/before-full-desktop-max.png",
+          "after": "/tmp/blockguard-report/comparisons/_landing/desktop-max/columns_columns-2-cols/after-full-desktop-max.png",
+          "diff": "/tmp/blockguard-report/comparisons/_landing/desktop-max/columns_columns-2-cols/diff-desktop-max.png"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "warnings": 0,
+    "failed": 12,
+    "unableToTest": 0,
+    "totalComparisons": 12,
+    "newA11yCriticalIssues": 0,
+    "newConsoleErrors": 0,
+    "pagesWithOverflow": 0,
+    "pagesWithMissingBlocks": 0
+  },
+  "status": "failed",
+  "jsonReportPath": "/tmp/blockguard-report/report.json",
+  "htmlReportPath": "/tmp/blockguard-report/index.html",
+  "markdownPath": "/tmp/blockguard-report/summary.md"
+}
