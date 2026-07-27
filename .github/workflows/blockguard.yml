@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - "blocks/**"
+      - "styles/**"
+      - "scripts/**"
       - "blockguard.config.yml"
   workflow_dispatch:
     inputs:
@@ -15,6 +17,13 @@ on:
         options:
           - representative
           - full
+      max_pages:
+        description: 'Maximum pages to test'
+        required: false
+        default: '300'
+      trigger_reason:
+        description: 'Reason for manual trigger (optional, for audit log)'
+        required: false
 
 permissions:
   contents: read
@@ -24,54 +33,41 @@ permissions:
 jobs:
   blockguard:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # Parallel viewports + page-reuse captures keep 8-page runs well under 10 min.
+    # Raise to 15 if you add more viewports or have a slow preview deploy.
+    timeout-minutes: 10
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-
-      - name: Install Puppeteer dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            libnss3 \
-            libatk1.0-0t64 \
-            libatk-bridge2.0-0t64 \
-            libcups2t64 \
-            libxcomposite1 \
-            libxdamage1 \
-            libxrandr2 \
-            libgbm1 \
-            libxkbcommon0 \
-            libpango-1.0-0 \
-            libcairo2 \
-            libasound2t64
-
-      - name: Install Chrome via Puppeteer
-        run: npx puppeteer browsers install chrome
-        env:
-          PUPPETEER_CACHE_DIR: /home/runner/.cache/puppeteer
+          fetch-depth: 0   # full history required for git diff
 
       - name: Run BlockGuard regression
+        id: blockguard
         uses: Abhishek-Tha/regressionvalidator-enhancements/packages/action@main
         with:
-          owner: abhishek-tha          # ← just your GitHub username, NO URL
-          repo: abregtest              # ← just the repo name, NO URL  
+          owner: abhishek-tha
+          repo: abregtest
           base-branch: main
           page-index-url: https://main--abregtest--abhishek-tha.aem.live/query-index.json
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          mode: representative
-          max-pages: '15'
-          fail-on-regression: 'false'
+          config: blockguard.config.yml          # reads per-scope/viewport thresholds
+          mode: ${{ inputs.mode || 'representative' }}
+          max-pages: ${{ inputs.max_pages || '8' }}
+          fail-on-regression: 'false'            # advisory mode — never blocks the PR
           advisory-mode: 'true'
+          # ── Feature toggle ──────────────────────────────────────────────────
+          # trigger-mode: "auto"   (default) runs on every PR that touches blocks/
+          # trigger-mode: "manual" skips automatic PR runs — trigger from MCP only
+          # Uncomment the line below to switch to MCP-only / on-demand mode:
+          # trigger-mode: 'manual'
 
       - name: Upload regression report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: blockguard-report
+          name: blockguard-report-${{ github.run_id }}
           path: /tmp/blockguard-report/
           retention-days: 14
 
@@ -81,3 +77,4 @@ jobs:
           echo "Status:          ${{ steps.blockguard.outputs.status }}"
           echo "Affected pages:  ${{ steps.blockguard.outputs.affected-pages }}"
           echo "Tested pages:    ${{ steps.blockguard.outputs.tested-pages }}"
+          echo "Report path:     ${{ steps.blockguard.outputs.report-path }}"

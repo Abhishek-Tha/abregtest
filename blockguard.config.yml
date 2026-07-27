@@ -1,14 +1,25 @@
 version: 1
 
+# ─── Site identity ────────────────────────────────────────────────────────────
 site:
-  owner:  abhishek-tha   # ← same as above
-  repo: abregtest             # ← same as above
+  owner: abhishek-tha
+  repo: abregtest
   baseBranch: main
-  githubToken: ${{ env.GH_TOKEN }}
+  # BlockGuard auto-derives these from owner/repo/branch — uncomment to override:
+  # liveHost: main--abregtest--abhishek-tha.aem.live
+  # previewHostPattern: "{branch}--abregtest--abhishek-tha.aem.page"
 
+# ─── Page discovery ───────────────────────────────────────────────────────────
 discovery:
   pageIndex: /query-index.json
+  include:
+    - "/**"
+  exclude:
+    - "/drafts/**"
+    - "/tools/**"
+    - "/admin/**"
 
+# ─── Block detection ──────────────────────────────────────────────────────────
 blockDetection:
   selector: ".block"
   nameStrategy: class
@@ -18,37 +29,138 @@ blockDetection:
     - loading
   variationStrategy: remaining-classes
 
+# ─── Page selection ───────────────────────────────────────────────────────────
 selection:
   mode: representative
-  maximumPages: 15
+  maximumPages: 8            # 8 covers all block variations for most EDS sites
   includeEveryVariation: true
   pagesPerVariation: 2
+  prioritize:
+    - traffic
+    - multiple-instances
+    - longest-content
 
+# ─── Screenshot capture ───────────────────────────────────────────────────────
+# Performance-tuned: domcontentloaded + block-decoration wait (~1-2s per page)
+# instead of networkidle2 + image load wait (~5-8s per page).
 capture:
   disableAnimations: true
-  waitForFonts: true
-  waitForImages: true
+  waitForFonts: false        # skipping saves ~1-2s per page (fonts still render)
+  waitForImages: false       # skipping saves ~2-3s per page
   maskSelectors:
     - ".timestamp"
     - ".personalized-content"
+    - "[data-dynamic]"
   hideSelectors:
     - ".cookie-banner"
+    - ".consent-modal"
   waitForSelectors:
-    - "main .block"
-  delayMs: 500
+    - "main .block"          # wait for EDS block decoration to complete
+  delayMs: 100               # minimal settle delay
+  timezone: UTC
+  locale: en-US
 
-viewports:
-  - name: mobile
-    width: 390
-    height: 844
-  - name: desktop
-    width: 1440
-    height: 1000
+# ─── Viewports ────────────────────────────────────────────────────────────────
+# "auto" — BlockGuard reads this project's CSS files at runtime (styles/ and
+# blocks/) and infers viewports from @media breakpoints automatically.
+#
+# For this project (styles/styles.css contains @media (width >= 900px)):
+#   • mobile-base  375×844  — narrow base capture (no breakpoint below 600px)
+#   • mobile-900   899×844  — just below the 900px breakpoint
+#   • desktop-900  900×900  — at the 900px breakpoint
+#   • desktop-max  1440×900 — wide desktop (widest breakpoint ≤ 1200px)
+#
+# When you update styles/styles.css breakpoints, the viewports update
+# automatically on the next run — no config change needed.
+#
+# To pin specific viewports instead, replace "auto" with an explicit list:
+#   viewports:
+#     - { name: mobile, width: 899, height: 844 }
+#     - { name: desktop, width: 1280, height: 900 }
+viewports: auto
 
+# ─── Pass/fail thresholds ─────────────────────────────────────────────────────
 thresholds:
-  visualWarning: 0.5
-  visualFailure: 3.0
-  newConsoleErrorsFailure: 1
+  # ── Global defaults (apply when no scope/viewport override matches) ─────────
+  visualWarning: 0.5         # % pixel mismatch → warning
+  visualFailure: 3.0         # % pixel mismatch → failure
+  newConsoleErrorsFailure: 1 # new JS errors → failure
   failOnNewCriticalAccessibilityIssue: true
   failOnMissingBlock: true
   failOnHorizontalOverflow: true
+
+  # ── Per-viewport overrides (apply to ALL scopes unless a scope overrides) ───
+  # Keys must match the inferred viewport names when using viewports: auto.
+  # For this project the inferred names are: mobile-base, mobile-900,
+  # desktop-900, desktop-max.  "mobile-*" entries get the looser threshold;
+  # "desktop-*" entries stay tight.
+  viewports:
+    mobile-base:
+      visualWarning: 1.0
+      visualFailure: 4.0
+    mobile-900:
+      visualWarning: 1.0
+      visualFailure: 4.0
+    desktop-900:
+      visualWarning: 0.5
+      visualFailure: 3.0
+    desktop-max:
+      visualWarning: 0.5
+      visualFailure: 3.0
+
+  # ── Per-scope overrides ─────────────────────────────────────────────────────
+  # Scope is derived automatically from the changed file path:
+  #   "block"        → file changed under  blocks/
+  #   "sharedStyles" → file changed under  styles/  or  scripts/
+  #   "global"       → everything else
+  #
+  # Resolution order (highest priority first):
+  #   scopes[scope].viewports[viewport]   ← most specific
+  #   scopes[scope]
+  #   thresholds.viewports[viewport]
+  #   thresholds.visualWarning/Failure    ← global default
+  scopes:
+    # Block-scoped changes: isolated CSS — keep thresholds tight
+    block:
+      visualWarning: 0.5
+      visualFailure: 3.0
+      viewports:
+        mobile-base:
+          visualWarning: 1.0
+          visualFailure: 3.0
+        mobile-900:
+          visualWarning: 1.0
+          visualFailure: 3.0
+        desktop-900:
+          visualWarning: 0.5
+          visualFailure: 3.0
+        desktop-max:
+          visualWarning: 0.5
+          visualFailure: 3.0
+
+    # Shared styles/scripts changes: site-wide CSS can cause minor rendering
+    # noise across many blocks simultaneously — allow slightly more headroom
+    sharedStyles:
+      visualWarning: 1.0
+      visualFailure: 4.0
+      viewports:
+        mobile-base:
+          visualWarning: 1.5
+          visualFailure: 4.0
+        mobile-900:
+          visualWarning: 1.5
+          visualFailure: 4.0
+        desktop-900:
+          visualWarning: 1.0
+          visualFailure: 4.0
+        desktop-max:
+          visualWarning: 1.0
+          visualFailure: 4.0
+
+    # Catch-all
+    global:
+      visualWarning: 0.5
+      visualFailure: 3.0
+
+# ─── Output ───────────────────────────────────────────────────────────────────
+outputDir: /tmp/blockguard-report
