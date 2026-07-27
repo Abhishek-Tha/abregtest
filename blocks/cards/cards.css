@@ -52,7 +52,7 @@
 .cards.body-highlight .cards-card-image {
   flex: 0 0 50%;
   order: 2;
-  line-height: 0;
+  line-height: 1;
 }
 
 .cards.body-highlight > ul > li img {
