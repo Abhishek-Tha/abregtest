@@ -55,7 +55,7 @@ jobs:
           PUPPETEER_CACHE_DIR: /home/runner/.cache/puppeteer
 
       - name: Run BlockGuard regression
-        uses: Abhishek-Tha/regressionvalidator/packages/action@main
+        uses: Abhishek-Tha/regressionvalidator-enhancements/packages/action@main
         with:
           owner: abhishek-tha          # ← just your GitHub username, NO URL
           repo: abregtest              # ← just the repo name, NO URL  
