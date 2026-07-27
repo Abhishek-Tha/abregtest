@@ -56,7 +56,6 @@
 }
 
 .cards.body-highlight > ul > li img {
-  width: 100%;
   height: 100%;
   aspect-ratio: unset;
   object-fit: cover;
