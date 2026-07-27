@@ -61,7 +61,7 @@ jobs:
           # trigger-mode: "auto"   (default) runs on every PR that touches blocks/
           # trigger-mode: "manual" skips automatic PR runs — trigger from MCP only
           # Uncomment the line below to switch to MCP-only / on-demand mode:
-          # trigger-mode: 'manual'
+          trigger-mode: 'manual'
 
       - name: Upload regression report
         if: always()
