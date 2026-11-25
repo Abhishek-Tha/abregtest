@@ -4,7 +4,7 @@
 }
 
 .columns img {
-  width: 100%;
+  width: 40%;
 }
 
 .columns > div > div {
@@ -50,7 +50,7 @@
 }
 
 .columns.stack-view img {
-  width: 100%;
+  width: 40%;
   display: block;
 }
 
