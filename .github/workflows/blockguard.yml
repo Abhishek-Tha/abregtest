@@ -33,16 +33,6 @@ permissions:
 jobs:
   blockguard:
     runs-on: ubuntu-latest
-    # ── Execution guard ─────────────────────────────────────────────────────────
-    # trigger-mode is set to 'manual' in the action inputs below.
-    # This if-condition enforces the same intent at the WORKFLOW level:
-    #   • pull_request events are ignored entirely (workflow queues but exits in <1s)
-    #   • workflow_dispatch (GitHub UI or MCP trigger_pr_regression) always runs
-    #
-    # To re-enable automatic PR runs, either:
-    #   a) Remove this `if:` line, OR
-    #   b) Change trigger-mode below from 'manual' to 'auto'
-    if: github.event_name == 'workflow_dispatch'
     # Parallel viewports + page-reuse captures keep 8-page runs well under 10 min.
     # Raise to 15 if you add more viewports or have a slow preview deploy.
     timeout-minutes: 10
@@ -70,8 +60,8 @@ jobs:
           # ── Feature toggle ──────────────────────────────────────────────────
           # trigger-mode: "auto"   (default) runs on every PR that touches blocks/
           # trigger-mode: "manual" skips automatic PR runs — trigger from MCP only
-          # Uncomment the line below to switch to MCP-only / on-demand mode:
-          trigger-mode: 'manual'
+          # Set to 'manual' for on-demand runs only (workflow_dispatch / MCP).
+          trigger-mode: 'auto'
 
       - name: Upload regression report
         if: always()
